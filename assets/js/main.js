@@ -7,7 +7,7 @@ $(function () {
     video();
     author();
     offCanvas();
-    lightbox();
+    gallery();
 });
 
 function darkMode() {
@@ -136,9 +136,14 @@ function dimmer(action, speed) {
     }
 }
 
-function lightbox() {
-    $('.kg-image, .kg-gallery-image img').each(function() {
-        $(this).wrap("<a data-no-swup data-fslightbox href='" + this.src + "' aria-label='Click for Lightbox' />");
-    });
-    refreshFsLightbox();
+function gallery() {
+    'use strict';
+    pswp(
+        '.kg-gallery-container',
+        '.kg-gallery-image',
+        '.kg-gallery-image',
+        false,
+        true
+    );
+    pswp('.kg-image-card', '.kg-image', '.kg-image', false, false);
 }
